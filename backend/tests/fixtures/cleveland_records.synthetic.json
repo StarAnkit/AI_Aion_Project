@@ -1,0 +1,56 @@
+[
+  {
+    "_fixture_scenario": "accepted_cc0",
+    "id": 900001,
+    "url": "https://example.test/cleveland/art/900001",
+    "title": "Synthetic Blue Vessel",
+    "creators": [{"description": "Synthetic Maker"}],
+    "creation_date": "circa 1900",
+    "technique": "Synthetic glazed ceramic",
+    "culture": ["Synthetic culture"],
+    "department": "Test collection",
+    "share_license_status": "CC0",
+    "images": {"web": {"url": "https://images.example.test/900001.jpg"}},
+    "description": "Synthetic authored prose that must never cross the allowlist.",
+    "tombstone": "Synthetic aggregate prose that must not be persisted."
+  },
+  {
+    "_fixture_scenario": "missing_rights",
+    "id": 900002,
+    "url": "https://example.test/cleveland/art/900002",
+    "title": "Synthetic Missing Rights",
+    "images": {"web": {"url": "https://images.example.test/900002.jpg"}}
+  },
+  {
+    "_fixture_scenario": "copyrighted",
+    "id": 900003,
+    "url": "https://example.test/cleveland/art/900003",
+    "title": "Synthetic Copyrighted Work",
+    "share_license_status": "Copyrighted",
+    "images": {"web": {"url": "https://images.example.test/900003.jpg"}}
+  },
+  {
+    "_fixture_scenario": "other_rights",
+    "id": 900004,
+    "url": "https://example.test/cleveland/art/900004",
+    "title": "Synthetic Other Rights Work",
+    "share_license_status": "Other",
+    "images": {"web": {"url": "https://images.example.test/900004.jpg"}}
+  },
+  {
+    "_fixture_scenario": "conflicting_rights",
+    "id": 900005,
+    "url": "https://example.test/cleveland/art/900005",
+    "title": "Synthetic Conflicting Rights Work",
+    "share_license_status": ["CC0", "Copyrighted"],
+    "images": {"web": {"url": "https://images.example.test/900005.jpg"}}
+  },
+  {
+    "_fixture_scenario": "missing_image",
+    "id": 900006,
+    "url": "https://example.test/cleveland/art/900006",
+    "title": "Synthetic Missing Image Work",
+    "share_license_status": "CC0",
+    "images": {}
+  }
+]

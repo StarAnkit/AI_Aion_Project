@@ -1,0 +1,1 @@
+"""External collection provider boundaries."""

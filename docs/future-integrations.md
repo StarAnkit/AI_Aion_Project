@@ -2,7 +2,9 @@
 
 ## PostgreSQL 17
 
-No schema, ORM, driver, migration tool, dataset, or connection string is selected. First define the user workflow and information that must persist. Then model it, choose the access and migration approach, and put PostgreSQL implementations behind backend repository interfaces. Keep database models separate from public API models.
+The provider-neutral catalog foundation uses SQLAlchemy 2, Alembic, and the Psycopg driver. Its initial schema separates providers, source records, normalized artwork facts, media assets, and rights evidence. Database access is configured only through `AI_AION_DATABASE_URL`; no real credentials are committed and no database is created automatically.
+
+Cleveland Museum of Art is the approved first provider, but its future mapping belongs behind the provider adapter boundary. No Cleveland records have been fetched or imported. Future schema changes must use reviewed Alembic migrations, and database models must remain separate from public API models.
 
 ## OpenAI APIs
 
