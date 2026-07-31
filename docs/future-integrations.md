@@ -8,4 +8,8 @@ Cleveland Museum of Art is the approved first provider, but its future mapping b
 
 ## OpenAI APIs
 
-No model, SDK, prompt, key, or credential placeholder is included. First define the AI-assisted outcome plus input, output, latency, privacy, and evaluation requirements. Then add a backend-owned provider interface. Keep credentials only in runtime environment configuration and use deterministic fakes in routine tests.
+The first grounded AI slice is limited to explaining an already-public eligible Cleveland artwork. Its backend-owned provider receives a server-derived, provider-host-allowlisted image URL and normalized factual metadata only. It has no arbitrary prompt, URL, web search, scrape, fetch, upload, or image-proxy surface. The key remains backend-only, calls use `store=False`, outputs are bounded and typed, and routine tests use deterministic fakes.
+
+Web research is a later, separately approved phase. It requires a reviewed allowlist of institutional, public-domain, or otherwise permitted sources; citations attached to each factual claim; original paraphrase only; and fail-closed source and rights eligibility. No arbitrary-site fallback or scraping may be added.
+
+Before a real provider is enabled publicly, deployment must add authentication or equivalent abuse attribution, per-user or tenant quotas, distributed rate limits, maximum spend controls and alerts, safe proxy/IP handling, request metrics without prompts or secrets, and incident-response controls. The local in-process throttle is not a substitute for those controls.

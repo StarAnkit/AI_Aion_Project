@@ -10,6 +10,9 @@ class Settings(BaseSettings):
     api_v1_prefix: str = "/api/v1"
     cors_origins: tuple[str, ...] = ("http://localhost:5173",)
     database_url: str | None = None
+    openai_api_key: str | None = None
+    openai_model: str = "gpt-5.6"
+    openai_image_hosts: tuple[str, ...] = ("openaccess-cdn.clevelandart.org",)
 
     def require_database_url(self) -> str:
         """Return the database URL only when a database feature needs it."""

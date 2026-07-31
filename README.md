@@ -2,7 +2,7 @@
 
 A clean full-stack starting point with a React + TypeScript frontend and a FastAPI backend.
 
-The project now includes a provider-neutral PostgreSQL catalog foundation and a fail-closed CC0 rights policy. It still contains no imported dataset, real database credentials, OpenAI SDK, or OpenAI credentials.
+The project includes a provider-neutral PostgreSQL catalog, a fail-closed CC0 rights policy, and an optional grounded artwork explanation. No OpenAI credential is committed or required for startup.
 
 ## Structure
 
@@ -52,9 +52,16 @@ After applying the database migration and importing approved records, the backen
 ```text
 GET /api/v1/catalog/artworks?limit=20&offset=0
 GET /api/v1/catalog/artworks/{provider-code}:{external-id}
+POST /api/v1/catalog/artworks/{provider-code}:{external-id}/explanation
 ```
 
 For the current Cleveland records, a detail identifier looks like `cleveland:12345`. Responses contain factual artwork metadata, the approved remote image URL, official source URL, provider attribution, and CC0 evidence. They never include database UUIDs, raw source payloads, authored descriptions, or unpublished/non-CC0 assets.
+
+The explanation route accepts only that stable public ID and no request body. It re-runs catalog eligibility, sends only normalized public facts plus the approved HTTPS image URL, and separates verified facts, visual observations, interpretations, and uncertainty. Without a key it returns `not_configured`; health and catalog startup remain independent.
+
+To enable locally, set `AI_AION_OPENAI_API_KEY` only in uncommitted `backend/.env` or a runtime secret store. The default vision model is `gpt-5.6`; `AI_AION_OPENAI_MODEL` may override it. Never expose the backend environment to Vite or use a `VITE_` variable for the key.
+
+Before enabling calls publicly, add authenticated user or tenant quotas and distributed edge/API rate limiting with monitoring and spend alerts. The included five-requests-per-minute, per-process client throttle is only a development defense-in-depth control.
 
 ## Database migrations
 

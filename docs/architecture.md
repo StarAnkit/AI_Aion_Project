@@ -18,6 +18,8 @@ The public catalog read boundary is `GET /api/v1/catalog/artworks` and `GET /api
 
 The catalog response includes an approved remote image URL only after those checks. It does not download or proxy image bytes. It excludes internal UUIDs, raw provider payloads, authored descriptions, and every non-public candidate.
 
+The artwork explanation route is downstream of this same public read boundary. It accepts only the stable public identifier, performs no client-directed retrieval, and constructs a narrow immutable AI input containing the allowlisted HTTPS image URL plus normalized facts. The provider cannot receive raw source facts, internal IDs, prose, credentials, or arbitrary user text. Provider absence is a normal disabled state, and failures are mapped to a generic response without configuration detail.
+
 ## Design principles
 
 - **High cohesion:** code that changes for the same reason lives together.
